@@ -45,38 +45,35 @@ class ModalViewController: UIViewController{
     
     func verifyTextField(title: String?, description: String?) -> Bool {
         
-        if(title != nil && title!.isEmpty){
-            titleTextEditing.layer.borderColor = UIColor.red.cgColor
-
-        } else {
+        if title != nil {
             
-            if title != nil {
+            if(title!.isEmpty){
+                titleTextEditing.layer.borderColor = UIColor.red.cgColor
                 
+            } else {
                 titleTextEditing.layer.borderColor = UIColor.gray.cgColor
-                
             }
-                
-            
             
         }
         
-        if(description != nil && description!.isEmpty){
+        if description != nil {
             
-            descriptionTextEditing.layer.borderColor = UIColor.red.cgColor
-            
-            return false
-            
-        } else {
-            
-            if description == nil {
+            if(description!.isEmpty){
+                
+                descriptionTextEditing.layer.borderColor = UIColor.red.cgColor
                 
                 return false
-            
+                
             } else {
                 
                 descriptionTextEditing.layer.borderColor = UIColor.gray.cgColor
                 return true
+                
             }
+            
+        } else {
+            
+            return false
             
         }
         
@@ -107,16 +104,17 @@ class ModalViewController: UIViewController{
         
     }
     
+    deinit {
+        // Não se esqueça de remover as observações quando a view for desalocada
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.bottomSheetView.frame.origin.y == 449 {
-                self.bottomSheetView.frame.origin.y -= keyboardSize.height
-            }
-        }
+        self.view.frame.origin.y = -300
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.bottomSheetView.frame.origin.y = 449
+        self.view.frame.origin.y = self.view.frame.origin.y + 300
     }
     
     @objc func dismissKeyboard() {

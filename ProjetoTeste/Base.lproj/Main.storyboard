@@ -128,7 +128,7 @@
         <scene sceneID="3GE-Wf-oQk">
             <objects>
                 <viewController storyboardIdentifier="modalVC" title="Modal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hFV-3H-Gx1" customClass="ModalViewController" customModule="ProjetoTeste" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ejA-hZ-fq3">
+                    <view key="view" contentMode="redraw" id="ejA-hZ-fq3">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -187,6 +187,7 @@
                                     <constraint firstItem="9FG-SJ-CKh" firstAttribute="leading" secondItem="rvl-Fd-X57" secondAttribute="leadingMargin" constant="16" id="Z69-wK-HIF"/>
                                     <constraint firstItem="Gxt-ds-v6M" firstAttribute="top" secondItem="rvl-Fd-X57" secondAttribute="top" constant="32" id="avP-S9-k5K"/>
                                     <constraint firstItem="Gxt-ds-v6M" firstAttribute="leading" secondItem="rvl-Fd-X57" secondAttribute="leading" constant="16" id="cIp-RH-pyT"/>
+                                    <constraint firstAttribute="width" secondItem="rvl-Fd-X57" secondAttribute="height" multiplier="13:10" id="eDt-43-OtQ"/>
                                     <constraint firstAttribute="trailing" secondItem="Gxt-ds-v6M" secondAttribute="trailing" constant="16" id="iIN-CN-gfY"/>
                                     <constraint firstItem="1PX-rB-3Vj" firstAttribute="leading" secondItem="rvl-Fd-X57" secondAttribute="leadingMargin" constant="16" id="lbc-Qr-pwp"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="QUu-ug-gUJ" secondAttribute="trailing" constant="16" id="xxS-Dm-2CA"/>
@@ -194,7 +195,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mbm-i9-k9b"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" red="0.00063132028313270326" green="0.59507904271614276" blue="0.69803921570000005" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" name="BgColor"/>
                         <constraints>
                             <constraint firstItem="rvl-Fd-X57" firstAttribute="leading" secondItem="mbm-i9-k9b" secondAttribute="leading" id="Hod-St-WkH"/>
@@ -314,9 +315,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
