@@ -6,6 +6,7 @@
 - [Tecnologias](#tecnologias)
 - [Como Utilizo o Projeto?](#como-utilizo-o-projeto)
 - [Obrigatórios](#obrigatórios)
+- [Observações](#observações)
 - [Créditos](#créditos)
 
 ## [Breve Descrição](#sobre)
@@ -24,7 +25,8 @@ Esse aplicativo utilizou as seguintes tecnologias:
 
 ## [Como Utilizo o Projeto?](#sobre)
 
-Para utilizar o projeto é necessário fazer a instalação do pod para garantir as instações das dependências necessárias e utilizar um simulador de Iphone para a execução do aplicativo.
+- Para utilizar o projeto será necessário baixar o projeto ou fazer o git clone do repositório.
+- Após isso abrir o projeto pelo arquivo "ProjetoTeste.xcworkspace" e a partir disso compilar no seu simulador do Iphone de sua preferência. 
 
 ## [Obrigatórios](#sobre)
 
@@ -33,6 +35,11 @@ Para utilizar o projeto é necessário fazer a instalação do pod para garantir
 - [x] Editar tarefa: o usuário pode editar o título e a descrição de uma tarefa existente.
 - [x] Excluir tarefa: o usuário pode excluir uma tarefa existente.
 - [x] Persistência de dados: carregar a lista de tarefas previamente salvas no app.
+
+## [Observações](#sobre)
+
+- A Modal responsável por adicionar e editar os itens responde a abertura e fechamento do teclado, se tentar usar os campos sem o teclado habilitado no simulador a view pode acabar sumindo, então se for usar a tela de adicionar e editar o item, lembrar de habilitar o teclado.
+- Foi utilizado o emulador do Iphone 15 pro para o desenvolvimento  da solução.
 
 ## [Créditos](#sobre)
 
