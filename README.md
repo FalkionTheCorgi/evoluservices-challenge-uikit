@@ -39,7 +39,7 @@ Esse aplicativo utilizou as seguintes tecnologias:
 ## [Observações](#sobre)
 
 - A Modal responsável por adicionar e editar os itens responde a abertura e fechamento do teclado, se tentar usar os campos sem o teclado habilitado no simulador a view pode acabar sumindo, então se for usar a tela de adicionar e editar o item, lembrar de habilitar o teclado.
-- Foi utilizado o emulador do Iphone 15 pro para o desenvolvimento  da solução.
+- Foi utilizado o emulador do "Iphone 15 Pro" para o desenvolvimento  da solução.
 
 ## [Créditos](#sobre)
 
