@@ -26,6 +26,7 @@ class DetailViewController: UIViewController{
         super.viewDidLoad()
     }
     
+    //método para fromatar os textos da tela
     func fillScreen(){
         
         let bold: [NSAttributedString.Key: Any] = [
@@ -48,12 +49,12 @@ class DetailViewController: UIViewController{
         
     }
     
+    //método para configurar a barra de navegação na tela
     func configureNavBar(){
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(voltar))
         backButton.tintColor = UIColor(named: "TitleColor")
         navigationItem.leftBarButtonItem = backButton
-        title = "Detalhes"
         
     }
     

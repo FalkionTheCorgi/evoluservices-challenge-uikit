@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
     }
     
-    
+    //abrir a bottomsheet de adicionar tarefa
     @IBAction func addTask(_ sender: Any) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         
     }
     
+    //método para observar o vetor de tarefas e definir o comportamento da tela
     func observableList(){
         
         model.items.asObservable()
@@ -66,16 +67,16 @@ extension ViewController: UITableViewDataSource {
         cell.titleLabel.text = task.title
         cell.titleLabel.numberOfLines = 0
         
+        //configurar o click no icone de editar da celula
         let tapEditIcon = UITapGestureRecognizer(target: self, action: #selector(editTaped))
         tapEditIcon.numberOfTapsRequired = 1
         cell.editIcon.addGestureRecognizer(tapEditIcon)
+        cell.editIcon.isUserInteractionEnabled = true
         
+        //configurar o click no icone de deletar da celula
         let tapDeleteIcon = UITapGestureRecognizer(target: self, action: #selector(deleteTaped))
         tapDeleteIcon.numberOfTapsRequired = 1
         cell.deleteIcon.addGestureRecognizer(tapDeleteIcon)
-        
-        
-        cell.editIcon.isUserInteractionEnabled = true
         cell.deleteIcon.isUserInteractionEnabled = true
         
         return cell
@@ -84,7 +85,7 @@ extension ViewController: UITableViewDataSource {
     @objc func editTaped(_ sender: UITapGestureRecognizer) {
 
         // Converta o ponto tocado na view da imagem para o ponto na tabela
-        let location = sender.location(in: tableView) // Substitua "tableView" pelo nome da sua UITableView
+        let location = sender.location(in: tableView)
 
         if let indexPath = tableView.indexPathForRow(at: location) {
             // indexPath agora contém o índice da célula clicada
@@ -132,6 +133,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     
+    //método para navegar para tela de detalhes
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = model.items.value[indexPath.row]
         

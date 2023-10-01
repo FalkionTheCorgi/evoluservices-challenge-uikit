@@ -33,6 +33,7 @@ class ModalViewController: UIViewController{
    
     }
     
+    //método para preparar a tela para ser edição de tarefa ou pra adicionar uma tarefa
     func fillScreen(){
         
         titleBottomSheet.text = isEdit ? "EDITAR TAREFA" : "ADICIONAR TAREFA"
@@ -43,6 +44,7 @@ class ModalViewController: UIViewController{
         
     }
     
+    //método para observar tudo que é escrito que no campo de descrição
     func verifyTextField(title: String?, description: String?) -> Bool {
         
         if title != nil {
@@ -79,20 +81,24 @@ class ModalViewController: UIViewController{
         
     }
     
+    //método para criar os observadores dos campos
     func observerTextField(){
         titleTextEditing.addTarget(self, action: #selector(titleTextFieldDidChange(_:)), for: .editingChanged)
         descriptionTextEditing.addTarget(self, action: #selector(descriptionTextFieldDidChange(_:)), for: .editingChanged)
     }
     
+    //método para observar tudo que é escrito que no campo de título
     @objc func titleTextFieldDidChange(_ textField: UITextField) {
         let _ = verifyTextField(title: textField.text, description: nil)
     }
     
+    //método para observar tudo que é escrito que no campo de descrição
     @objc func descriptionTextFieldDidChange(_ textField: UITextField) {
         let _ = verifyTextField(title: nil, description: textField.text)
    }
     
     
+    //método para observer a abertura e fechamento do teclado
     func keyBoarRecongnizer(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -105,8 +111,9 @@ class ModalViewController: UIViewController{
     }
     
     deinit {
-        // Não se esqueça de remover as observações quando a view for desalocada
-        NotificationCenter.default.removeObserver(self)
+        // remover as observações quando a view for desalocada
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -121,6 +128,7 @@ class ModalViewController: UIViewController{
         view.endEditing(true)
     }
     
+    //método para customizar alguns layouts da pagina
     func setupBottomSheetView(){
         
         bottomSheetView.layer.cornerRadius = 12.0
@@ -129,6 +137,7 @@ class ModalViewController: UIViewController{
         
     }
     
+    //método para adicionar ou editar um item da lista
     @IBAction func addItem(_ sender: Any) {
         if(verifyTextField(title: titleTextEditing.text, description: descriptionTextEditing.text)){
             if isEdit{

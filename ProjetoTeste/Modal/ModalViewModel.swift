@@ -10,7 +10,8 @@ import Foundation
 class ModalViewModel{
     
     var buttonTitle = "ADICIONAR"
-
+    
+    //método para converter uma data e hora em string
     func getDate() -> String{
         
         let now = Date() // Obtém a data e hora atuais
