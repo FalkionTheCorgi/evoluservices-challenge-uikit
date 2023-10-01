@@ -132,9 +132,10 @@ class ModalViewController: UIViewController{
     func setupBottomSheetView(){
         
         bottomSheetView.layer.cornerRadius = 12.0
-        titleTextEditing.layer.borderWidth = 0.5
-        descriptionTextEditing.layer.borderWidth = 0.5
-        
+        titleTextEditing.layer.borderWidth = 0.3
+        titleTextEditing.layer.borderColor = UIColor.gray.cgColor
+        descriptionTextEditing.layer.borderWidth = 0.3
+        descriptionTextEditing.layer.borderColor = UIColor.gray.cgColor
     }
     
     //método para adicionar ou editar um item da lista
