@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var emptyListView: UIView!
     @IBOutlet weak var tableView: UITableView!
     private lazy var model : ListViewModel = {
-        return ListViewModel(tableView: tableView)
+        return ListViewModel()
     }()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
                 } else {
                     self.emptyListView.isHidden = true
                     self.tableView.isHidden = false
+                    self.tableView.reloadData()
                 }
             })
             .disposed(by: disposeBag)
@@ -125,7 +126,9 @@ extension ViewController: UITableViewDataSource {
             
             tableView.beginUpdates()
 
-            model.deleteItem(item: item, tableView: tableView)
+            model.deleteItem(item: item)
+            
+            tableView.endUpdates()
             
         }
     }

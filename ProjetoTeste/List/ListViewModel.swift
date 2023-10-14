@@ -17,47 +17,44 @@ class ListViewModel {
     private var cancellable: AnyCancellable?
     
     
-    init(tableView: UITableView) {
+    init() {
         
-        getTasks(tableView: tableView)
-        atualizarLista(tableView: tableView)
+        getTasks()
+        atualizarLista()
         
     }
     
     
 
     
-    func getTasks(tableView: UITableView) {
+    func getTasks() {
         
         let coreData = PersistenceController.shared
 
         cancellable = coreData.dataChangedPublisher
             .sink(receiveValue: { [weak self] _ in
-                self?.atualizarLista(tableView: tableView)
+                self?.atualizarLista()
             })
 
         
     }
     
-    private func atualizarLista(tableView: UITableView) {
+    private func atualizarLista() {
         
         // Obtenha os dados do banco de dados
         let itemsFromDatabase = PersistenceController.shared.getAllItems()
         
         DispatchQueue.main.async {
             self.items.accept(itemsFromDatabase)
-            tableView.reloadData()
         }
         
     }
     
-    func deleteItem(item: Item, tableView: UITableView){
+    func deleteItem(item: Item){
         
         let coreData = PersistenceController.shared
         
         coreData.deleteItem(item: item)
-
-        tableView.endUpdates()
         
     }
     
